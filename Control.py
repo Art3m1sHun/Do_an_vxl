@@ -2,7 +2,7 @@
 import cv2
 import mediapipe as mp
 import time
-import main
+import communicate
 
 # Mediapipe setup
 mp_hands = mp.solutions.hands
@@ -59,17 +59,17 @@ while cap.isOpened():
                 print("Số ngón tay:", totalFingers)
                 settings = []
                 if(totalFingers == 1):
-                    main.serialwritedata('01')
+                    communicate.serialwritedata('01')
                 elif(totalFingers == 2):
-                    main.serialwritedata('02') 
+                    communicate.serialwritedata('02') 
                 elif(totalFingers == 3):
-                    main.serialwritedata('03')
+                    communicate.serialwritedata('03')
                 elif(totalFingers == 4):
-                    main.serialwritedata('04')
+                    communicate.serialwritedata('04')
                 elif(totalFingers == 5):
-                    main.serialwritedata('05')
+                    communicate.serialwritedata('05')
                 elif(totalFingers == 0):
-                    main.serialwritedata('00')
+                    communicate.serialwritedata('00')
 
     # Hiển thị thời gian
     text = f"time: {time.strftime('%H:%M:%S')}"
