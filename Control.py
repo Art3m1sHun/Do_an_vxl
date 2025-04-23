@@ -1,3 +1,4 @@
+# phần code này thực hiện việc điều kiển: gửi dữ liệu từ camera sang vi điều khiên thông qua cổng COM
 import cv2
 import mediapipe as mp
 import time
