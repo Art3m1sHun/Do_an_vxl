@@ -71,10 +71,6 @@ while cap.isOpened():
                 elif(totalFingers == 0):
                     communicate.serialwritedata('00')
 
-    # Hiển thị thời gian
-    text = f"time: {time.strftime('%H:%M:%S')}"
-    cv2.putText(img, text, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
     cv2.imshow("Finger Counter", img)
     if cv2.waitKey(5) & 0xFF == ord('q'):
         break
