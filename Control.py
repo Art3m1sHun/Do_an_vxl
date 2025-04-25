@@ -1,8 +1,7 @@
-# phần code này thực hiện việc điều kiển: gửi dữ liệu từ camera sang vi điều khiên thông qua cổng COM
 import cv2
 import mediapipe as mp
 import time
-import communicate
+import main
 
 # Mediapipe setup
 mp_hands = mp.solutions.hands
@@ -54,22 +53,23 @@ while cap.isOpened():
                 totalFingers = fingers.count(1)
 
                 # Hiển thị số ngón tay
-                cv2.putText(img, f'Fingers: {totalFingers}', (10, 100), cv2.FONT_HERSHEY_SIMPLEX,
-                            2, (255, 0, 0), 4)
+                cv2.putText(img, f'Fingers: {totalFingers}', (10, 100), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 4)
                 print("Số ngón tay:", totalFingers)
                 settings = []
                 if(totalFingers == 1):
-                    communicate.serialwritedata('01')
+                    main.serialwritedata('01')
                 elif(totalFingers == 2):
-                    communicate.serialwritedata('02') 
+                    main.serialwritedata('02') 
                 elif(totalFingers == 3):
-                    communicate.serialwritedata('03')
+                    main.serialwritedata('03')
                 elif(totalFingers == 4):
-                    communicate.serialwritedata('04')
+                    main.serialwritedata('04')
                 elif(totalFingers == 5):
-                    communicate.serialwritedata('05')
+                    main.serialwritedata('05')
                 elif(totalFingers == 0):
-                    communicate.serialwritedata('00')
+                    main.serialwritedata('00')
+
+    # Hiển thị thời gian
 
     cv2.imshow("Finger Counter", img)
     if cv2.waitKey(5) & 0xFF == ord('q'):
