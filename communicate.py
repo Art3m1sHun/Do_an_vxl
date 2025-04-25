@@ -9,7 +9,7 @@ portsList = []
 # Đoạn code này kiểm tra xem cổng COM nào đang có và lựa chọn cổng COM đang kết nối với con vi xử lý
 for one in ports:
     portsList.append(str(one))
-   print(str(one))
+    print(str(one))
 
 com = input("Chon cong COM #: ")
 
